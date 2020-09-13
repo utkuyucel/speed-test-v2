@@ -23,7 +23,6 @@ class Engine:
         if (self.counter < self.kelime_sayaci):
             self.counter += 1
             self.get_sentences() # For using method from inside of Class.
-            return self.output
 
         else:
             print(self.kelime_sayaci, "Adet kelime sayısına ulaşıldı") # 'Reached to max words'
