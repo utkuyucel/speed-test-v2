@@ -48,23 +48,34 @@ class Engine:
 
 if __name__ == "__main__":
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n")
-    inp = int(input("Kaç adet kelime yazmak istersiniz?: ")) #How many words would you like to write?
-    if inp <= 0:
-        print("Kelime sayısı  0'dan küçük olamaz") #Word count can't be equal or lower than 0
     
-    ch = input("Hangi dilde alıştırma yapmak istersiniz?(english | turkish): ")
-    
-    if ch == "turkish" or ch == "Turkish":
-        eng = Engine("turkish.txt", inp) # Kelimeler -> Words
-        eng.start()
+    while True:
+        # Checking if input is integer or not
+        try:
+            inp = int(input("Kaç adet kelime yazmak istersiniz?: ")) #How many words would you like to write?
+        except:
+            print("Lütfen bir tam sayı giriniz.") #input must be an integer
+            continue
+            
+        # Checking if input is below or equal than zero or not
+        if (inp <= 0):
+            print("Kelime sayısı  0'dan küçük olamaz") #Word count can't be equal or lower than 0
+            continue
 
-    elif ch == "english" or ch == "English":
-        eng = Engine("english.txt", inp)
-        eng.start()
+        else:
+            ch = input("Hangi dilde alıştırma yapmak istersiniz?(english | turkish): ")
+            if (ch == "turkish" or ch == "Turkish"):
+                eng = Engine("turkish.txt", inp) # Kelimeler -> Words
+                eng.start()
 
-    else:
-        print("HATALI GİRİŞ YAPILDI.") # Wrong/unknown input
-        print("Türkçe ile devam ediliyor...") # Auto-choosing Turkish if all inputs are False.
-        eng = Engine("turkish.txt", inp)
-        eng.start()
+            elif (ch == "english" or ch == "English"):
+                eng = Engine("english.txt", inp)
+                eng.start()
 
+            else:
+                print("HATALI GİRİŞ YAPILDI.") # Wrong/unknown input
+                print("Türkçe ile devam ediliyor...") # Auto-choosing Turkish if all inputs are False.
+                eng = Engine("turkish.txt", inp)
+                eng.start()
+
+        break
