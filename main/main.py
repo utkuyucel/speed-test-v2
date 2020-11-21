@@ -31,14 +31,14 @@ class Engine:
     def start(self):
         self.check() # Using check method.
         while True:
-            giris = input(f"{eng.output} -> ")
+            giris = input(f"{self.output} -> ")
 
             if (giris == "q"):
                 print(self.counter-1, "Adet doğru kelime girdiniz.") # -1 for discarding the 'q' value.
                 print(self.wrong_counter, "Adet yanlış giriş yapıldı.")
                 break
 
-            if giris != eng.output:
+            if giris != self.output:
                 self.wrong_counter += 1
                 continue
     
